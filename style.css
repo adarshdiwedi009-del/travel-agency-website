@@ -1,0 +1,1403 @@
+/* ============================================
+   WanderWorld Travel Agency — style.css
+   Colors:
+     Blue (main)  : #0A2E5A
+     Orange (accent): #FF6B2C
+     Light gray bg: #F5F7FA
+   ============================================ */
+
+
+/* ---------- RESET ---------- */
+/* Remove default browser spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- BASE STYLES ---------- */
+body {
+  font-family: Arial, sans-serif;
+  color: #1E293B;
+  background-color: #ffffff;
+  line-height: 1.7;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---------- REUSABLE CONTAINER ---------- */
+/* Centers content and limits max width */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- SECTION SPACING ---------- */
+.section {
+  padding: 80px 0;
+}
+
+/* Light background for alternating sections */
+.bg-light {
+  background-color: #F5F7FA;
+}
+
+/* ---------- SECTION TITLE ---------- */
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-size: 2.2rem;
+  color: #0A2E5A;
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  color: #64748B;
+  font-size: 1rem;
+}
+
+/* Small orange tag above headings */
+.tag {
+  display: inline-block;
+  background-color: #FFF0EA;
+  color: #FF6B2C;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+/* White text version for dark sections */
+.section-title.light h2 { color: #ffffff; }
+.section-title.light p  { color: rgba(255,255,255,0.7); }
+
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn-primary {
+  display: inline-block;
+  background-color: #FF6B2C;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #e55a1c;
+  transform: translateY(-2px);
+}
+
+/* Full-width button */
+.btn-full {
+  width: 100%;
+  text-align: center;
+}
+
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+
+#navbar {
+  position: fixed;       /* stays at top while scrolling */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 70px;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* Style when user scrolls down (added by JS) */
+#navbar.scrolled {
+  background-color: #ffffff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  transition: color 0.3s;
+}
+
+#navbar.scrolled .logo {
+  color: #0A2E5A;
+}
+
+/* Nav links list */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+/* When scrolled, make links dark */
+#navbar.scrolled .nav-links a {
+  color: #475569;
+}
+
+#navbar.scrolled .nav-links a:hover {
+  color: #0A2E5A;
+}
+
+/* "Book Now" highlighted button in nav */
+.btn-booknow {
+  background-color: #FF6B2C !important;
+  color: #ffffff !important;
+  padding: 9px 20px !important;
+  border-radius: 50px !important;
+}
+
+.btn-booknow:hover {
+  background-color: #e55a1c !important;
+}
+
+/* Hamburger menu — hidden on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+#navbar.scrolled .hamburger span {
+  background-color: #0A2E5A;
+}
+
+/* Hamburger animation when open */
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 20px 60px;
+
+  /* Background image */
+  background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1600');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Dark overlay on top of the background */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 46, 90, 0.65);
+}
+
+/* Content sits above the overlay */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  width: 100%;
+}
+
+.hero-tag {
+  color: #FFB38A;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  color: #ffffff;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.hero-sub {
+  color: rgba(255,255,255,0.8);
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+/* Search Box */
+.search-box {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 60px;
+  padding: 12px 12px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.search-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 10px;
+  border-right: 1px solid rgba(255,255,255,0.25);
+}
+
+.search-item:last-of-type {
+  border-right: none;
+}
+
+.search-item label {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.search-item input,
+.search-item select {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 0.9rem;
+  padding: 2px 0;
+}
+
+.search-item select option {
+  color: #1E293B;
+  background: #ffffff;
+}
+
+.btn-search {
+  background-color: #FF6B2C;
+  color: #ffffff;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.3s, transform 0.3s;
+  flex-shrink: 0;
+}
+
+.btn-search:hover {
+  background-color: #e55a1c;
+  transform: translateY(-2px);
+}
+
+
+/* ============================================
+   COUNTERS
+   ============================================ */
+
+.counters {
+  background: linear-gradient(135deg, #0A2E5A, #1A4A8A);
+  padding: 60px 0;
+}
+
+.counters-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  text-align: center;
+}
+
+.counter-item h2 {
+  font-size: 2.8rem;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.counter-item p {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+
+/* ============================================
+   DESTINATION CARDS
+   ============================================ */
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+}
+
+/* Card image area */
+.card-img {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Small badge on card image */
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: #FF6B2C;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
+.card-body {
+  padding: 18px;
+}
+
+/* Top row: location + price */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+  color: #64748B;
+}
+
+.price {
+  color: #FF6B2C;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.card-body h3 {
+  font-size: 1.15rem;
+  color: #0A2E5A;
+  margin-bottom: 8px;
+}
+
+.card-body p {
+  font-size: 0.85rem;
+  color: #64748B;
+  margin-bottom: 14px;
+}
+
+/* Bottom row: duration + rating */
+.card-footer {
+  display: flex;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: #64748B;
+  padding-top: 12px;
+  border-top: 1px solid #E2E8F0;
+}
+
+
+/* ============================================
+   WHY CHOOSE US
+   ============================================ */
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.why-card {
+  background: #F5F7FA;
+  border-radius: 16px;
+  padding: 32px 24px;
+  border: 1px solid #E2E8F0;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+}
+
+.why-icon {
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+
+.why-card h3 {
+  font-size: 1.05rem;
+  color: #0A2E5A;
+  margin-bottom: 8px;
+}
+
+.why-card p {
+  font-size: 0.875rem;
+  color: #64748B;
+}
+
+
+/* ============================================
+   PACKAGES
+   ============================================ */
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.pkg-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.pkg-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.14);
+}
+
+/* Featured package has orange border */
+.pkg-card.featured {
+  border: 2px solid #FF6B2C;
+}
+
+/* "Most Popular" label */
+.featured-label {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  background-color: #FF6B2C;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
+.pkg-img {
+  height: 190px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Duration tag on image */
+.pkg-days {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #ffffff;
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
+.pkg-body {
+  padding: 20px;
+}
+
+/* Star rating row */
+.stars {
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  color: #FFB800;
+}
+
+.stars span {
+  color: #64748B;
+  font-size: 0.78rem;
+  margin-left: 4px;
+}
+
+.pkg-body h3 {
+  font-size: 1.1rem;
+  color: #0A2E5A;
+  margin-bottom: 12px;
+}
+
+.pkg-body ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.pkg-body ul li {
+  font-size: 0.83rem;
+  color: #64748B;
+}
+
+/* Bottom row: price + button */
+.pkg-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid #E2E8F0;
+}
+
+.pkg-price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #0A2E5A;
+}
+
+.pkg-price small {
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: #64748B;
+  display: block;
+}
+
+
+/* ============================================
+   TESTIMONIALS
+   ============================================ */
+
+.testimonials {
+  background: linear-gradient(135deg, #0A2E5A, #1A4A8A);
+}
+
+.slider-wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* Each slide is hidden by default */
+.slide {
+  display: none;
+}
+
+/* Only the active slide shows */
+.slide.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.testi-card {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+}
+
+.quote {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.9);
+  font-style: italic;
+  line-height: 1.9;
+  margin-bottom: 28px;
+}
+
+.testi-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.testi-author img {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 3px solid #FF6B2C;
+}
+
+.testi-author strong {
+  display: block;
+  color: #ffffff;
+}
+
+.testi-author span {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+}
+
+/* Prev / Next buttons + dots */
+.slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.slider-controls button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.slider-controls button:hover {
+  background-color: #FF6B2C;
+  border-color: #FF6B2C;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dot.active {
+  background-color: #FF6B2C;
+  width: 22px;
+  border-radius: 4px;
+}
+
+
+/* ============================================
+   CONTACT
+   ============================================ */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.contact-info h3 {
+  font-size: 1.4rem;
+  color: #0A2E5A;
+  margin-bottom: 24px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.info-icon {
+  font-size: 1.4rem;
+  width: 44px;
+  height: 44px;
+  background-color: #FFF0EA;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-item strong {
+  display: block;
+  color: #0A2E5A;
+  font-size: 0.85rem;
+  margin-bottom: 2px;
+}
+
+.info-item p {
+  color: #64748B;
+  font-size: 0.9rem;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1E293B;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #1E293B;
+  background: #ffffff;
+  outline: none;
+  transition: border 0.3s;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #2D7DD2;
+}
+
+/* Red border on invalid field */
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #EF4444;
+}
+
+/* Error text */
+.error {
+  display: block;
+  font-size: 0.78rem;
+  color: #EF4444;
+  margin-top: 4px;
+}
+
+/* Side-by-side form fields */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Success message (hidden until form is valid) */
+#successMsg {
+  display: none;
+  margin-top: 14px;
+  padding: 14px;
+  background-color: #D1FAE5;
+  border: 1px solid #6EE7B7;
+  border-radius: 8px;
+  color: #065F46;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  background: linear-gradient(135deg, #060F1E, #0A2E5A);
+  padding: 70px 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  padding-bottom: 50px;
+}
+
+.footer-brand .logo {
+  color: #ffffff;
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.footer-brand p {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.875rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* Social icon buttons */
+.socials {
+  display: flex;
+  gap: 8px;
+}
+
+.socials a {
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.72rem;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.socials a:hover {
+  background-color: #FF6B2C;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.footer-col h4 {
+  color: #ffffff;
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col ul a {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.875rem;
+  transition: color 0.3s;
+}
+
+.footer-col ul a:hover {
+  color: #FF6B2C;
+}
+
+.footer-col p {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+/* Newsletter input + button */
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.newsletter input {
+  padding: 10px 14px;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.07);
+  color: #ffffff;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.newsletter input::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+.newsletter input:focus {
+  border-color: #FF6B2C;
+}
+
+.newsletter button {
+  padding: 10px;
+  background-color: #FF6B2C;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.newsletter button:hover {
+  background-color: #e55a1c;
+}
+
+/* Footer copyright bar */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 22px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-bottom p {
+  color: rgba(255,255,255,0.3);
+  font-size: 0.82rem;
+}
+
+.footer-bottom a {
+  color: rgba(255,255,255,0.3);
+  font-size: 0.82rem;
+  margin-left: 16px;
+  transition: color 0.3s;
+}
+
+.footer-bottom a:hover {
+  color: #FF6B2C;
+}
+
+
+/* ============================================
+   BACK TO TOP BUTTON
+   ============================================ */
+
+#backToTop {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background-color: #FF6B2C;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: none;     /* hidden by default — JS shows it */
+  transition: background 0.3s, transform 0.3s;
+  z-index: 999;
+  box-shadow: 0 4px 16px rgba(255,107,44,0.4);
+}
+
+#backToTop:hover {
+  background-color: #e55a1c;
+  transform: translateY(-3px);
+}
+
+
+/* ============================================
+   RESPONSIVE — TABLET (max 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+
+  .cards-grid     { grid-template-columns: repeat(2, 1fr); }
+  .why-grid       { grid-template-columns: repeat(2, 1fr); }
+  .packages-grid  { grid-template-columns: repeat(2, 1fr); }
+  .counters-grid  { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid    { grid-template-columns: repeat(2, 1fr); }
+
+}
+
+
+/* ============================================
+   RESPONSIVE — MOBILE (max 768px)
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* Sections less padding on mobile */
+  .section { padding: 60px 0; }
+
+  /* Hero text smaller */
+  .hero-content h1 { font-size: 2.2rem; }
+
+  /* Search box stacks vertically */
+  .search-box {
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 16px;
+  }
+
+  .search-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding: 8px 0;
+    width: 100%;
+  }
+
+  .search-item:last-of-type { border-bottom: none; }
+  .btn-search { width: 100%; }
+
+  /* Single column grids */
+  .cards-grid     { grid-template-columns: 1fr; }
+  .why-grid       { grid-template-columns: 1fr 1fr; }
+  .packages-grid  { grid-template-columns: 1fr; }
+  .contact-grid   { grid-template-columns: 1fr; }
+
+  /* Mobile nav menu */
+  .hamburger { display: flex; }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(10, 46, 90, 0.97);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 24px 30px;
+    gap: 4px;
+
+    /* Hidden off-screen by default */
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  /* When hamburger is clicked, JS adds .open */
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .nav-links a {
+    padding: 12px 0;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    width: 100%;
+  }
+
+  /* Section headings smaller */
+  .section-title h2 { font-size: 1.8rem; }
+
+  /* Footer single column */
+  .footer-grid    { grid-template-columns: 1fr; gap: 24px; }
+  .footer-bottom  { flex-direction: column; text-align: center; }
+  .footer-bottom a { margin-left: 0; margin-right: 12px; }
+
+}
+
+
+/* ============================================
+   RESPONSIVE — SMALL MOBILE (max 480px)
+   ============================================ */
+@media (max-width: 480px) {
+
+  .hero-content h1 { font-size: 1.9rem; }
+  .why-grid        { grid-template-columns: 1fr; }
+  .counters-grid   { grid-template-columns: 1fr 1fr; }
+  .form-row        { grid-template-columns: 1fr; }
+
+}
+
+
+
+
+
+
+
+/* Center container horizontally */
+.button-container {
+    text-align: center; /* Centers the button inside the div */
+    margin-top: 50px;   /* Optional: adds some space from the top */
+}
+
+.more-button {
+    background-color:#FF6B2C;       /* Orange background */
+    color: white;                   /* White text */
+    border: none;                   /* Remove default border */
+    padding: 10px 25px;             /* Top/bottom and left/right padding */
+    font-size: 20px;                /* Text size */
+    border-radius: 35px;            /* Rounded corners */
+    cursor: pointer;                /* Pointer on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth hover effect */
+}
+
+.more-button:hover {
+    background-color: #e55a1c;   /* Slightly darker on hover */
+    transform: scale(1.05);         /* Slight grow effect */
+}
+
+
+
+
+
+
+
+/* =============================================
+   faq.css — Styles for WanderCraft FAQ Page
+   Simple, clean, and beginner-friendly CSS.
+   No frameworks. No libraries. Just CSS.
+   ============================================= */
+
+
+/* =============================================
+   1. RESET
+   Removes default browser spacing so everything
+   looks the same across all browsers.
+   ============================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* =============================================
+   2. BODY
+   Sets the overall page background and font.
+   ============================================= */
+
+
+/* =============================================
+   3. HEADER
+   The top section with the page title.
+   ============================================= */
+.site-header {
+  background-color: #1a73e8;
+  color: white;
+  text-align: center;
+  padding: 50px 20px 40px;
+}
+
+.brand {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.site-header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+
+/* =============================================
+   4. FAQ WRAPPER
+   Centers the FAQ content on the page and
+   adds padding so it doesn't touch the edges.
+   ============================================= */
+.faq-wrapper {
+  max-width: 780px;       /* never wider than 780px */
+  margin: 40px auto;      /* centered horizontally */
+  padding: 0 16px;        /* breathing room on small screens */
+}
+
+
+/* =============================================
+   5. FAQ SECTION
+   Just a container — no special styles needed.
+   ============================================= */
+.faq-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;              /* space between each FAQ item */
+}
+
+
+/* =============================================
+   6. FAQ ITEM — the <details> element
+   Each collapsible question block.
+   ============================================= */
+.faq-item {
+  background-color: white;
+  border: 1px solid #e0e6ee;
+  border-radius: 10px;
+  overflow: hidden;       /* keeps rounded corners clean */
+
+  /* Soft shadow for depth */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* When the item is open, give it a blue left border */
+.faq-item[open] {
+  border-left: 4px solid #1a73e8;
+}
+
+
+/* =============================================
+   7. FAQ QUESTION — the <summary> element
+   This is the clickable question row.
+   ============================================= */
+.faq-question {
+  display: flex;
+  justify-content: space-between;  /* question on left, arrow on right */
+  align-items: center;
+  padding: 18px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #222;
+  cursor: pointer;                 /* shows a hand cursor on hover */
+
+  /* Removes the default triangle marker browsers add */
+  list-style: none;
+}
+
+/* Remove default marker in Firefox and other browsers */
+.faq-question::-webkit-details-marker { display: none; }
+
+/* Hover effect — light blue background */
+.faq-question:hover {
+  background-color: #f0f6ff;
+  color: #1a73e8;
+}
+
+
+/* =============================================
+   8. ARROW ICON
+   The small ▼ arrow on the right side.
+   It rotates 180° when the item is open.
+   ============================================= */
+.faq-arrow {
+  font-size: 0.75rem;
+  color: #1a73e8;
+  transition: transform 0.3s ease;  /* smooth rotation */
+  flex-shrink: 0;                   /* arrow never shrinks */
+  margin-left: 12px;
+}
+
+/* Rotate the arrow when <details> is open */
+.faq-item[open] .faq-arrow {
+  transform: rotate(180deg);
+}
+
+
+/* =============================================
+   9. FAQ ANSWER
+   The hidden paragraph that appears on click.
+   ============================================= */
+.faq-answer {
+  padding: 0 20px 18px;
+  font-size: 0.95rem;
+  color: #555;
+  border-top: 1px solid #f0f0f0;
+}
+
+.faq-answer p {
+  padding-top: 14px;
+}
+
+
+/* =============================================
+   10. CONTACT PROMPT
+   The "still have questions?" line at the bottom.
+   ============================================= */
+.faq-contact {
+  text-align: center;
+  margin-top: 36px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.faq-contact a {
+  color: #1a73e8;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.faq-contact a:hover {
+  text-decoration: underline;
+}
+
+
+/* =============================================
+   11. FOOTER
+   ============================================= */
+
+
+/* =============================================
+   12. RESPONSIVE — mobile screens
+   On small phones, reduce font size and padding
+   so everything still fits nicely.
+   ============================================= */
+@media (max-width: 500px) {
+
+  .site-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .faq-question {
+    font-size: 0.92rem;
+    padding: 14px 16px;
+  }
+
+  .faq-answer {
+    font-size: 0.88rem;
+    padding: 0 16px 14px;
+  }
+}

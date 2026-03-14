@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- This makes the page look correct on mobile phones and tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Tour Packages | TravelJa</title>
+
+    <!-- Link to our external CSS file for all the styles -->
+    <link rel="stylesheet" href="package.css" />
+  </head>
+
+  <body>
+
+ 
+    <section class="hero-banner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Explore · Discover · Experience</p>
+        <h1 class="hero-title">Find Your Perfect Journey</h1>
+        <p class="hero-subtitle">
+          Carefully crafted travel packages for every type of adventurer —
+          from serene pilgrimages to romantic honeymoons.
+        </p>
+      </div>
+    </section>
+
+
+
+    <section class="packages-section" id="packages">
+
+      <!-- Section heading area -->
+      <div class="section-header">
+        <span class="section-tag">Handpicked For You</span>
+        <h2 class="section-title">Our Tour Packages</h2>
+        <p class="section-subtitle">
+          From snow-capped mountains to golden beaches — choose a package that speaks
+          to your soul. All trips include carefully curated experiences at unbeatable value.
+        </p>
+      </div>
+
+
+      <div class="filter-bar">
+        <!-- "All" is active by default — shows all cards -->
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Family">Family</button>
+        <button class="filter-btn" data-filter="Couple">Couple</button>
+        <button class="filter-btn" data-filter="Honeymoon">Honeymoon</button>
+        <button class="filter-btn" data-filter="Group">Group</button>
+        <button class="filter-btn" data-filter="Solo">Solo</button>
+        <button class="filter-btn" data-filter="Budget">Budget</button>
+        <button class="filter-btn" data-filter="Pilgrimage">Pilgrimage</button>
+      </div>
+
+ 
+      <div class="cards-grid" id="cardsGrid">
+
+
+      
+        <div class="package-card" data-type="Couple">
+
+          <!-- Card image at the top -->
+          <div class="card-image-wrap">
+            <img
+              src="goa.jpg"
+              alt="Goa Beach"
+              class="card-image"
+            />
+       
+            <span class="card-badge badge-couple">Couple</span>
+          </div>
+
+
+          <div class="card-body">
+
+            <!-- Destination name -->
+            <h3 class="card-title">Goa Beach Escape</h3>
+
+            <!-- Duration and price row -->
+            <div class="card-meta">
+              <span class="meta-duration">⏱ 4 Days / 3 Nights</span>
+              <span class="meta-price">₹12,499 <small>/ person</small></span>
+            </div>
+
+            <!-- List of what's included in this package -->
+            <ul class="inclusions-list">
+              <li>🏨 Hotel Stay (3-Star)</li>
+              <li>🍳 Daily Breakfast</li>
+              <li>🚌 Airport Transfers</li>
+              <li>🏄 Water Sports Activity</li>
+              <li>🗺 Beach Sightseeing Tour</li>
+            </ul>
+
+            <!-- Two action buttons -->
+            <div class="card-actions">
+              <button class="btn btn-outline">View Details</button>
+              <!-- data-destination is read by JavaScript to show the right alert message -->
+              <button class="btn btn-primary book-btn" data-destination="Goa Beach Escape">
+                Book Now
+              </button>
+            </div>
+
+          </div>
+        </div>
+        <!-- END CARD 1 -->
+
+
+        <!-- ===================================================
+             CARD 2 — Manali Snow Adventure | Type: Family
+        =================================================== -->
+        <div class="package-card" data-type="Family">
+
+          <div class="card-image-wrap">
+            <img
+              src="manali.jpg"
+              alt="Manali Snow"
+              class="card-image"
+            />
+            <span class="card-badge badge-family">Family</span>
+          </div>
+
+          <div class="card-body">
+            <h3 class="card-title">Manali Snow Adventure</h3>
+
+            <div class="card-meta">
+              <span class="meta-duration">⏱ 5 Days / 4 Nights</span>
+              <span class="meta-price">₹18,999 <small>/ person</small></span>
+            </div>
+
+            <ul class="inclusions-list">
+              <li>🏨 Hotel Stay (4-Star)</li>
+              <li>🍳 Breakfast & Dinner</li>
+              <li>🚌 Cab Transport Included</li>
+              <li>⛷ Snow Activities</li>
+            </ul>
+
+            <div class="card-actions">
+              <button class="btn btn-outline">View Details</button>
+              <button class="btn btn-primary book-btn" data-destination="Manali Snow Adventure">
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- END CARD 2 -->
+
+
+        <!-- ===================================================
+             CARD 3 — Kerala Backwaters | Type: Honeymoon
+        =================================================== -->
+        <div class="package-card" data-type="Honeymoon">
+
+          <div class="card-image-wrap">
+            <img
+              src="kerala2.jpg"
+              alt="Kerala Backwaters"
+              class="card-image"
+            />
+            <span class="card-badge badge-honeymoon">Honeymoon</span>
+          </div>
+
+          <div class="card-body">
+            <h3 class="card-title">Kerala Backwaters</h3>
+
+            <div class="card-meta">
+              <span class="meta-duration">⏱ 6 Days / 5 Nights</span>
+              <span class="meta-price">₹24,999 <small>/ person</small></span>
+            </div>
+
+            <ul class="inclusions-list">
+              <li>🏨 Houseboat + Resort Stay</li>
+              <li>🍳 All Meals Included</li>
+              <li>🚢 Backwater Cruise</li>
+              <li>💆 Couple Spa Session</li>
+              <li>🚌 Private Cab</li>
+            </ul>
+
+            <div class="card-actions">
+              <button class="btn btn-outline">View Details</button>
+              <button class="btn btn-primary book-btn" data-destination="Kerala Backwaters">
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- END CARD 3 -->
+
+
+        <!-- ===================================================
+             CARD 4 — Rajasthan Heritage Tour | Type: Group
+        =================================================== -->
+        <div class="package-card" data-type="Group">
+
+          <div class="card-image-wrap">
+            <img
+              src="rajasthan.jpg"
+              alt="Rajasthan Heritage"
+              class="card-image"
+            />
+            <span class="card-badge badge-group">Group</span>
+          </div>
+
+          <div class="card-body">
+            <h3 class="card-title">Rajasthan Heritage Tour</h3>
+
+            <div class="card-meta">
+              <span class="meta-duration">⏱ 7 Days / 6 Nights</span>
+              <span class="meta-price">₹16,499 <small>/ person</small></span>
+            </div>
+
+            <ul class="inclusions-list">
+              <li>🏨 Heritage Hotel Stay</li>
+              <li>🍳 Breakfast Included</li>
+              <li>🚌 Group AC Bus</li>
+              <li>🏰 Fort & Palace Visits</li>
+              <li>🐪 Camel Safari</li>
+            </ul>
+
+            <div class="card-actions">
+              <button class="btn btn-outline">View Details</button>
+              <button class="btn btn-primary book-btn" data-destination="Rajasthan Heritage Tour">
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- END CARD 4 -->
+
+
+        <!-- ===================================================
+             CARD 5 — Leh-Ladakh Expedition | Type: Solo
+        =================================================== -->
+        <div class="package-card" data-type="Solo">
+
+          <div class="card-image-wrap">
+            <img
+              src="leh2.jpg"
+              alt="Leh Ladakh"
+              class="card-image"
+            />
+            <span class="card-badge badge-solo">Solo</span>
+          </div>
+
+          <div class="card-body">
+            <h3 class="card-title">Leh-Ladakh Expedition</h3>
+
+            <div class="card-meta">
+              <span class="meta-duration">⏱ 8 Days / 7 Nights</span>
+              <span class="meta-price">₹28,999 <small>/ person</small></span>
+            </div>
+
+            <ul class="inclusions-list">
+              <li>🏨 Guesthouse + Camping</li>
+              <li>🍳 Breakfast & Dinner</li>
+              <li>🏍 Bike Rental Option</li>
+              <li>🗺 Guided Mountain Tour</li>
+            </ul>
+
+            <div class="card-actions">
+              <button class="btn btn-outline">View Details</button>
+              <button class="btn btn-primary book-btn" data-destination="Leh-Ladakh Expedition">
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- END CARD 5 -->
+
+
+        <!-- ===================================================
+             CARD 6 — Varanasi Spiritual Journey | Type: Pilgrimage
+        =================================================== -->
+        <div class="package-card" data-type="Pilgrimage">
+
+          <div class="card-image-wrap">
+            <img
+              src="vara2 (2).jpg"
+              alt="Varanasi Ghats"
+              class="card-image"
+            />
+            <span class="card-badge badge-pilgrimage">Pilgrimage</span>
+          </div>
+
+          <div class="card-body">
+            <h3 class="card-title">Varanasi Spiritual Journey</h3>
+
+            <div class="card-meta">
+              <span class="meta-duration">⏱ 3 Days / 2 Nights</span>
+              <span class="meta-price">₹7,999 <small>/ person</small></span>
+            </div>
+
+            <ul class="inclusions-list">
+              <li>🏨 Hotel Stay</li>
+              <li>🍳 Breakfast Included</li>
+              <li>🚌 Local Transport</li>
+              <li>🕯 Ganga Aarti Experience</li>
+              <li>⛵ Ghat Boat Ride</li>
+            </ul>
+
+            <div class="card-actions">
+              <button class="btn btn-outline">View Details</button>
+              <button class="btn btn-primary book-btn" data-destination="Varanasi Spiritual Journey">
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- END CARD 6 -->
+
+
+        <!-- ===================================================
+             CARD 7 — Northeast Explorer | Type: Budget
+        =================================================== -->
+        <div class="package-card" data-type="Budget">
+
+          <div class="card-image-wrap">
+            <img
+              src="northeast.jpg"
+              alt="Northeast India"
+              class="card-image"
+            />
+            <span class="card-badge badge-budget">Budget</span>
+          </div>
+
+          <div class="card-body">
+            <h3 class="card-title">Northeast Explorer</h3>
+
+            <div class="card-meta">
+              <span class="meta-duration">⏱ 5 Days / 4 Nights</span>
+              <span class="meta-price">₹9,499 <small>/ person</small></span>
+            </div>
+
+            <ul class="inclusions-list">
+              <li>🏨 Budget Hotel Stay</li>
+              <li>🍳 Breakfast Included</li>
+              <li>🚌 Shared Transport</li>
+              <li>🌿 Nature Walks</li>
+            </ul>
+
+            <div class="card-actions">
+              <button class="btn btn-outline">View Details</button>
+              <button class="btn btn-primary book-btn" data-destination="Northeast Explorer">
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- END CARD 7 -->
+
+
+        <!-- ===================================================
+             CARD 8 — Andaman Islands Getaway | Type: Couple
+        =================================================== -->
+        <div class="package-card" data-type="Couple">
+
+          <div class="card-image-wrap">
+            <img
+              src="andmaan1.jpg"
+              alt="Andaman Islands"
+              class="card-image"
+            />
+            <span class="card-badge badge-couple">Couple</span>
+          </div>
+
+          <div class="card-body">
+            <h3 class="card-title">Andaman Islands Getaway</h3>
+
+            <div class="card-meta">
+              <span class="meta-duration">⏱ 6 Days / 5 Nights</span>
+              <span class="meta-price">₹21,999 <small>/ person</small></span>
+            </div>
+
+            <ul class="inclusions-list">
+              <li>🏨 Beach Resort Stay</li>
+              <li>🍳 All Meals Included</li>
+              <li>🤿 Snorkelling & Diving</li>
+              <li>⛵ Island Ferry Passes</li>
+              <li>🚌 Airport Transfers</li>
+            </ul>
+
+            <div class="card-actions">
+              <button class="btn btn-outline">View Details</button>
+              <button class="btn btn-primary book-btn" data-destination="Andaman Islands Getaway">
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- END CARD 8 -->
+
+
+        <!-- ===================================================
+             CARD 9 — Char Dham Yatra | Type: Pilgrimage
+        =================================================== -->
+        <div class="package-card" data-type="Pilgrimage">
+
+          <div class="card-image-wrap">
+            <img
+              src="char dham.jpg"
+              alt="Char Dham Yatra"
+              class="card-image"
+            />
+            <span class="card-badge badge-pilgrimage">Pilgrimage</span>
+          </div>
+
+          <div class="card-body">
+            <h3 class="card-title">Char Dham Yatra</h3>
+
+            <div class="card-meta">
+              <span class="meta-duration">⏱ 12 Days / 11 Nights</span>
+              <span class="meta-price">₹32,999 <small>/ person</small></span>
+            </div>
+
+            <ul class="inclusions-list">
+              <li>🏨 Dharamshala + Hotel</li>
+              <li>🍳 Breakfast & Dinner</li>
+              <li>🚌 Dedicated AC Coach</li>
+              <li>🧘 Pooja Arrangements</li>
+              <li>🗺 Expert Guide</li>
+            </ul>
+
+            <div class="card-actions">
+              <button class="btn btn-outline">View Details</button>
+              <button class="btn btn-primary book-btn" data-destination="Char Dham Yatra">
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- END CARD 9 -->
+
+
+      </div>
+      <!-- END .cards-grid -->
+
+      <!-- Message shown when no cards match the selected filter -->
+      <p class="no-results-msg" id="noResultsMsg">
+        No packages found for this category. Please try another filter.
+      </p>
+
+    </section>
+    <!-- END .packages-section -->
+
+
+    <!-- ============================================================
+         FOOTER
+         Simple footer at the bottom of the page
+    ============================================================ -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-brand">✦ TravelJa</p>
+        <p class="footer-copy">
+          © 2025 TravelJa. All rights reserved. | Crafted with ❤ for explorers.
+        </p>
+      </div>
+    </footer>
+
+
+    <!-- Link to our external JavaScript file -->
+    <!-- It's placed at the BOTTOM of the body so the HTML loads first -->
+    <script src="package.js"></script>
+
+  </body>
+</html>

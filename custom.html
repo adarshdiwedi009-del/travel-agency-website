@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tour Package Builder</title>
+  <link rel="stylesheet" href="custom.css" />
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+  <header class="header">
+    <h1>✈️ Tour Package Builder</h1>
+    <p>Pick your options and get an instant price estimate</p>
+  </header>
+
+  <!-- MAIN LAYOUT: left form + right summary -->
+  <div class="page-layout">
+
+    <!-- LEFT SIDE: All options -->
+    <div class="form-box">
+
+      <!-- 0. Destination -->
+      <div class="option-block destination-block">
+        <h3>📍 Where do you want to go?</h3>
+        <input
+          type="text"
+          id="destination-input"
+          class="destination-input"
+          placeholder="e.g. Goa, Manali, Kerala, Paris..."
+        />
+        <!-- Popular quick-pick destinations -->
+        <div class="popular-destinations">
+          <span class="popular-label">Popular:</span>
+          <button class="dest-tag" data-dest="Goa"> Goa</button>
+          <button class="dest-tag" data-dest="Manali"> Manali</button>
+          <button class="dest-tag" data-dest="Kerala"> Kerala</button>
+          <button class="dest-tag" data-dest="Jaipur"> Jaipur</button>
+          <button class="dest-tag" data-dest="Shimla"> Shimla</button>
+          <button class="dest-tag" data-dest="Andaman"> Andaman</button>
+             <button class="dest-tag" data-dest="Mathura">Mathura</button>
+                <button class="dest-tag" data-dest="Kashmir">Kashmir</button>
+           <button class="dest-tag" data-dest="Haridwar">Haridwar</button>
+              <button class="dest-tag" data-dest="Lucknow">Lucknow</button>
+               <button class="dest-tag" data-dest="Ayodhya">Ayodhya</button>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- 1. Trip Type -->
+      <div class="option-block">
+        <h3>1. Trip Type</h3>
+        <div class="btn-group">
+          <button class="choice-btn" data-group="tripType" data-value="Solo">👤 Solo</button>
+          <button class="choice-btn" data-group="tripType" data-value="Couple">💑 Couple</button>
+          <button class="choice-btn" data-group="tripType" data-value="Family">👨‍👩‍👧 Family</button>
+          <button class="choice-btn" data-group="tripType" data-value="Group">👥 Group</button>
+          <button class="choice-btn" data-group="tripType" data-value="Budget">💸 Budget</button>
+        </div>
+      </div>
+
+      <!-- 2. Number of Days -->
+      <div class="option-block">
+        <h3>2. Number of Days</h3>
+        <div class="btn-group">
+          <button class="choice-btn" data-group="days" data-value="1 Day">1 Day</button>
+          <button class="choice-btn" data-group="days" data-value="2 Days">2 Days</button>
+          <button class="choice-btn" data-group="days" data-value="3 Days">3 Days</button>
+          <button class="choice-btn" data-group="days" data-value="4+ Days">4+ Days</button>
+        </div>
+      </div>
+
+      <!-- 3. Hotel -->
+      <div class="option-block">
+        <h3>3. Hotel Category</h3>
+        <div class="btn-group">
+          <button class="choice-btn" data-group="hotel" data-value="Budget">🏠 Budget</button>
+          <button class="choice-btn" data-group="hotel" data-value="Standard">🏨 Standard</button>
+          <button class="choice-btn" data-group="hotel" data-value="Premium">🏩 Premium</button>
+        </div>
+      </div>
+
+      <!-- 4. Transport -->
+      <div class="option-block">
+        <h3>4. Transport</h3>
+        <div class="btn-group">
+          <button class="choice-btn" data-group="transport" data-value="No Transport">🚶 None</button>
+          <button class="choice-btn" data-group="transport" data-value="Cab">🚕 Cab</button>
+          <button class="choice-btn" data-group="transport" data-value="Pickup & Drop">🚐 Pickup & Drop</button>
+        </div>
+      </div>
+
+      <!-- 5. Meals -->
+      <div class="option-block">
+        <h3>5. Meals</h3>
+        <div class="btn-group">
+          <button class="choice-btn" data-group="meals" data-value="No Meals">🚫 None</button>
+          <button class="choice-btn" data-group="meals" data-value="Breakfast Only">🍳 Breakfast</button>
+          <button class="choice-btn" data-group="meals" data-value="Breakfast + Dinner">🍽️ Breakfast + Dinner</button>
+        </div>
+      </div>
+
+      <!-- 6. Sightseeing -->
+      <div class="option-block">
+        <h3>6. Sightseeing</h3>
+        <div class="btn-group">
+          <button class="choice-btn" data-group="sightseeing" data-value="Standard">🗿 Standard</button>
+          <button class="choice-btn" data-group="sightseeing" data-value="Full Sightseeing">🌄 Full</button>
+          <button class="choice-btn" data-group="sightseeing" data-value="Guided Tour">🧭 Guided Tour</button>
+        </div>
+      </div>
+
+    </div>
+    <!-- END LEFT SIDE -->
+
+    <!-- RIGHT SIDE: Summary + Price + Buttons -->
+    <div class="summary-box">
+
+      <h2>📋 Your Summary</h2>
+
+      <!-- Selected options shown here -->
+      <div class="summary-list">
+        <div class="summary-row">
+          <span>📍 Destination</span>
+          <span id="sum-destination">—</span>
+        </div>
+        <div class="summary-row">
+          <span>Trip Type</span>
+          <span id="sum-trip">—</span>
+        </div>
+        <div class="summary-row">
+          <span>Days</span>
+          <span id="sum-days">—</span>
+        </div>
+        <div class="summary-row">
+          <span>Hotel</span>
+          <span id="sum-hotel">—</span>
+        </div>
+        <div class="summary-row">
+          <span>Transport</span>
+          <span id="sum-transport">—</span>
+        </div>
+        <div class="summary-row">
+          <span>Meals</span>
+          <span id="sum-meals">—</span>
+        </div>
+        <div class="summary-row">
+          <span>Sightseeing</span>
+          <span id="sum-sightseeing">—</span>
+        </div>
+      </div>
+
+      <!-- Price breakdown -->
+      <h3 class="breakdown-title">💰 Price Breakdown</h3>
+      <div class="summary-list">
+        <div class="summary-row"><span>Base (Trip + Days)</span><span id="break-base">₹0</span></div>
+        <div class="summary-row"><span>Hotel</span><span id="break-hotel">₹0</span></div>
+        <div class="summary-row"><span>Transport</span><span id="break-transport">₹0</span></div>
+        <div class="summary-row"><span>Meals</span><span id="break-meals">₹0</span></div>
+        <div class="summary-row"><span>Sightseeing</span><span id="break-sight">₹0</span></div>
+      </div>
+
+      <!-- Total price -->
+      <div class="total-box">
+        <span>Total Price</span>
+        <span id="total-price">₹0</span>
+      </div>
+
+      <!-- Action buttons -->
+      <button class="btn green-btn"  id="btn-save">💾 Save My Plan</button>
+      <button class="btn blue-btn"   id="btn-load">📂 Load Saved Plan</button>
+      <button class="btn red-btn"    id="btn-reset">🔄 Reset</button>
+      <button class="btn orange-btn" id="btn-book">🏖️ Book This Plan</button>
+
+    </div>
+    <!-- END RIGHT SIDE -->
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 TravelJa · Prices are estimates only</p>
+  </footer>
+
+  <script src="custom.js"></script>
+</body>
+</html>

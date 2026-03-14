@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discover India & Beyond</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+ 
+  <link rel="stylesheet" href="destination.css" />
+</head>
+<body>
+
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-pill">✦ Your Ultimate Travel Guide</div>
+      <h1>Discover <em>India</em><br />&amp; Beyond</h1>
+      <p>Sacred temples, vibrant cities, snow-capped peaks, golden beaches — every journey begins with curiosity.</p>
+      <a href="#religious" class="btn-hero">Start Exploring ↓</a>
+    </div>
+  </header>
+
+
+  <nav class="top-nav" id="topnav">
+    <button class="nav-btn active" onclick="goTo('religious')">🕌 Religious</button>
+    <button class="nav-btn" onclick="goTo('domestic')">🏙 Domestic</button>
+    <button class="nav-btn" onclick="goTo('international')">✈️ International</button>
+    <button class="nav-btn" onclick="goTo('adventure')">🌿 Adventure</button>
+  </nav>
+
+  <main>
+
+ 
+    <section class="section" id="religious">
+      <div class="sec-head">
+        <span class="sec-label">Sacred Journeys</span>
+        <h2>Religious Destinations</h2>
+        <p>India's soul lives in its ancient temples, sacred rivers, and eternal pilgrimage routes.</p>
+      </div>
+      <div class="grid" id="religious-grid"></div>
+    </section>
+
+
+    <section class="section section-alt" id="domestic">
+      <div class="sec-head">
+        <span class="sec-label">Explore India</span>
+        <h2>Domestic Destinations</h2>
+        <p>From the pink deserts of Rajasthan to the lush backwaters of Kerala — India never repeats itself.</p>
+      </div>
+      <div class="grid" id="domestic-grid"></div>
+    </section>
+
+
+    <section class="section" id="international">
+      <div class="sec-head">
+        <span class="sec-label">Go Global</span>
+        <h2>International Destinations</h2>
+        <p>Cross borders and discover the world's most iconic, breathtaking destinations.</p>
+      </div>
+      <div class="grid" id="international-grid"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 4 — ADVENTURE & NATURE
+    ═══════════════════════════════════════ -->
+    <section class="section section-alt" id="adventure">
+      <div class="sec-head">
+        <span class="sec-label">Off the Beaten Path</span>
+        <h2>Adventure &amp; Nature</h2>
+        <p>For thrill-seekers, nature lovers, and those who prefer the horizon over the hotel lobby.</p>
+      </div>
+      <div class="adv-grid" id="adventure-grid"></div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer>
+    <div class="foot-logo">Discover <em>India</em> &amp; Beyond</div>
+    <p>© 2025 · A beginner's travel guide · Images from Unsplash · Maps by Google</p>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       MODAL OVERLAY
+  ═══════════════════════════════════════ -->
+  <div class="overlay" id="overlay" onclick="handleOverlayClick(event)">
+    <div class="modal" id="modal">
+
+      <!-- Modal Hero Image + Title -->
+      <div class="modal-hero" id="modal-hero">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <div class="modal-hero-text">
+          <span id="modal-country"></span>
+          <h2 id="modal-name"></h2>
+        </div>
+      </div>
+
+      <!-- Modal Body: Tabs + Tab Content -->
+      <div class="modal-body">
+        <div class="tabs" id="modal-tabs"></div>
+        <div id="modal-tab-contents"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- External JS (loaded last so DOM is ready) -->
+  <script src="destination.js"></script>
+
+</body>
+</html>

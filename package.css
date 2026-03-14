@@ -1,0 +1,641 @@
+/* ============================================================
+   package.css — Styles for TravelNest Tour Packages Page
+   Author: TravelNest Dev Team
+   Description: Clean, modern, beginner-friendly CSS
+   Uses: CSS Variables, Flexbox, Media Queries
+============================================================ */
+
+
+/* ============================================================
+   1. CSS VARIABLES (Custom Properties)
+   Think of these as "settings" — change a value here and it
+   updates everywhere on the page automatically.
+============================================================ */
+:root {
+  /* Brand Colors */
+  --color-primary:     #FF6B2C;   /* Deep forest green — main brand color */
+  --color-primary-dark: #FF6B2C;  
+  --color-accent:       #e8a020;   /* Golden amber — highlights & badges */
+  --color-accent-dark: #FF6B2C;   /* Darker amber for hover */
+
+  /* Background Colors */
+  --color-bg-page:    #f4f7f5;     /* Very light greenish-white page background */
+  --color-bg-card:    #ffffff;     /* Pure white for cards */
+  --color-bg-hero:    #0f3d26;     /* Very dark green for hero section */
+  --color-bg-navbar:  #FF6B2C;    /* Same dark green for navbar */
+  --color-bg-footer:  #0b2d1c;    /* Darkest green for footer */
+
+  /* Text Colors */
+  --color-text-dark:   #1a2e23;   /* Nearly black — headings */
+  --color-text-body:   #3d5247;   /* Dark green-gray — body text */
+  --color-text-light:  #6b8c7a;   /* Lighter — subtitles, meta info */
+  --color-text-white:  #ffffff;   /* White — on dark backgrounds */
+
+  /* Spacing */
+  --spacing-xs:  8px;
+  --spacing-sm:  16px;
+  --spacing-md:  24px;
+  --spacing-lg:  48px;
+  --spacing-xl:  80px;
+
+  /* Border Radius */
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-pill: 999px;   /* Makes elements fully rounded (pill shape) */
+
+  /* Shadows */
+  --shadow-card:  0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.16);
+  --shadow-btn:   0 4px 14px rgba(26, 107, 74, 0.35);
+
+  /* Transitions (smooth animations) */
+  --transition-fast:   0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+
+/* ============================================================
+   2. RESET & BASE STYLES
+   Remove browser default styles so everything looks consistent
+   across Chrome, Firefox, Safari, etc.
+============================================================ */
+
+/* Apply border-box sizing to every element.
+   This means padding is included inside the element's width. */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base page settings */
+html {
+  scroll-behavior: smooth; /* Smooth scrolling when clicking anchor links */
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* System font stack */
+  background-color: var(--color-bg-page);
+  color: var(--color-text-body);
+  line-height: 1.6;         /* Comfortable line spacing for reading */
+  font-size: 15px;
+}
+
+/* Remove bullet points from all lists */
+ul {
+  list-style: none;
+}
+
+/* Make images flexible — they won't overflow their container */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove default underline from links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* ============================================================
+   3. NAVIGATION BAR
+   Fixed at the top of the page
+============================================================ */
+
+.navbar {
+  background-color: var(--color-bg-navbar);
+  position: sticky;       /* Sticks to the top when you scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;           /* Stays above other content */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Inner wrapper centers content and uses flexbox to space items */
+.navbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;         /* Centers the content horizontally */
+  padding: 0 var(--spacing-sm);
+  height: 68px;
+  display: flex;
+  align-items: center;    /* Vertically center the items */
+  justify-content: space-between; /* Brand on left, links on right */
+}
+
+/* Brand / Logo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-white);
+}
+
+.brand-icon {
+  font-size: 20px;
+  color: var(--color-accent);
+}
+
+.brand-name {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Nav links container */
+.nav-links {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+/* Individual nav link */
+.nav-link {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 4px;
+  border-bottom: 2px solid transparent; /* Hidden underline, shown on hover/active */
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+/* Hover state for nav links */
+.nav-link:hover {
+  color: var(--color-text-white);
+  border-bottom-color: var(--color-accent);
+}
+
+/* The currently active link */
+.nav-link.active {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+
+/* ============================================================
+   4. HERO BANNER
+   Full-width banner with a background image and overlay
+============================================================ */
+
+.hero-banner {
+  background-color: var(--color-bg-hero);
+
+  /* Background image — overlaid with a dark gradient for readability */
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(10, 35, 20, 0.72) 0%,
+      rgba(10, 35, 20, 0.55) 100%
+    ),
+    url('https://picsum.photos/seed/travel-hero/1600/600');
+
+  background-size: cover;       /* Image fills the entire area */
+  background-position: center;  /* Centers the image */
+  background-repeat: no-repeat;
+
+  padding: 100px var(--spacing-sm);
+  text-align: center;
+  color: var(--color-text-white);
+}
+
+/* Constrain content width inside the hero */
+.hero-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Small uppercase text above the title */
+.hero-eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* The big hero heading */
+.hero-title {
+  font-size: clamp(32px, 5vw, 56px); /* Fluid font — scales with screen width */
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: -0.5px;
+}
+
+/* Hero description text */
+.hero-subtitle {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+
+/* ============================================================
+   5. PACKAGES SECTION — Wrapper
+============================================================ */
+
+.packages-section {
+  max-width: 1200px;      /* Limits content width on very large screens */
+  margin: 0 auto;         /* Centers the section */
+  padding: var(--spacing-xl) var(--spacing-sm);
+}
+
+
+/* ============================================================
+   6. SECTION HEADER (heading + subtitle)
+============================================================ */
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Small label above the main title */
+.section-tag {
+  display: inline-block;
+  background-color: rgba(26, 107, 74, 0.1);
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Main section heading */
+.section-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  color: var(--color-text-dark);
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+/* Subtitle under the section heading */
+.section-subtitle {
+  font-size: 16px;
+  color: var(--color-text-light);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+
+/* ============================================================
+   7. FILTER BAR
+   Row of buttons to filter packages by type
+============================================================ */
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;          /* Buttons wrap to a new line if needed */
+  gap: 10px;
+  justify-content: center;  /* Center all buttons horizontally */
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Each filter button */
+.filter-btn {
+  padding: 9px 22px;
+  border: 2px solid #d0ddd7;
+  background-color: var(--color-bg-card);
+  color: var(--color-text-body);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  cursor: pointer;          /* Shows a hand cursor on hover */
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+/* Hover effect on filter buttons */
+.filter-btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+  border-color: var(--color-primary);
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* The currently active/selected filter button */
+.filter-btn.active {
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+  border-color: var(--color-primary);
+}
+
+
+/* ============================================================
+   8. CARDS GRID
+   Flexbox layout for the package cards
+============================================================ */
+
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;          /* Cards wrap to the next line */
+  gap: 28px;
+  justify-content: flex-start;
+}
+
+
+/* ============================================================
+   9. INDIVIDUAL PACKAGE CARD
+============================================================ */
+
+.package-card {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;         /* Clips the image to the card's rounded corners */
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;   /* Stack image on top of body content */
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+
+  /* Card width: fills the row with 3 per row on desktop.
+     Formula: 100% width ÷ 3 cards − gap space */
+  width: calc(33.333% - 19px);
+}
+
+/* Card hover effect — lift up and deepen shadow */
+.package-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Cards hidden by the JS filter — display:none removes them from layout */
+.package-card.hidden {
+  display: none;
+}
+
+
+/* ---- Card Image Area ---- */
+
+.card-image-wrap {
+  position: relative;       /* Needed to position the badge on top of the image */
+  overflow: hidden;
+  height: 210px;            /* Fixed height so all images are the same size */
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* Crops image to fill the area without distorting */
+  transition: transform 0.5s ease;
+}
+
+/* Zoom-in effect on the image when hovering the card */
+.package-card:hover .card-image {
+  transform: scale(1.07);
+}
+
+
+/* ---- Badge (package type label on the image) ---- */
+
+.card-badge {
+  position: absolute;       /* Placed over the image, top-left corner */
+  top: 14px;
+  left: 14px;
+  padding: 5px 13px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  color: var(--color-text-white);
+}
+
+/* Each badge type has its own color */
+.badge-couple     { background-color: #e84393; } /* Pink */
+.badge-family     { background-color: #2e86de; } /* Blue */
+.badge-honeymoon  { background-color: #c0392b; } /* Red */
+.badge-group      { background-color: #8e44ad; } /* Purple */
+.badge-solo       { background-color: #16a085; } /* Teal */
+.badge-budget     { background-color: #d35400; } /* Orange */
+.badge-pilgrimage { background-color: #b7950b; } /* Dark Gold */
+
+
+/* ---- Card Body (text content below the image) ---- */
+
+.card-body {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;             /* Makes the body fill remaining card height */
+  gap: var(--spacing-sm);
+}
+
+/* Destination name */
+.card-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.3;
+}
+
+
+/* ---- Card Meta: Duration + Price ---- */
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;  /* Duration on left, price on right */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.meta-duration {
+  font-size: 13px;
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+.meta-price {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+/* "/ person" text inside the price — smaller and lighter */
+.meta-price small {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-light);
+}
+
+
+/* ---- Inclusions List ---- */
+
+.inclusions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-grow: 1;             /* Pushes the buttons to the bottom */
+  padding-top: 4px;
+}
+
+.inclusions-list li {
+  font-size: 13px;
+  color: var(--color-text-body);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
+/* ---- Card Action Buttons ---- */
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* Base styles shared by both buttons */
+.btn {
+  flex: 1;                  /* Both buttons share equal width */
+  padding: 11px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+  text-align: center;
+}
+
+/* "View Details" button — outlined style */
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+  transform: translateY(-2px);
+}
+
+/* "Book Now" button — solid filled style */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-btn);
+}
+
+
+/* ============================================================
+   10. NO RESULTS MESSAGE
+   Shown when no cards match the selected filter
+============================================================ */
+
+.no-results-msg {
+  display: none;            /* Hidden by default; JS shows it when needed */
+  width: 100%;
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+  font-size: 16px;
+  color: var(--color-text-light);
+}
+
+
+/* ============================================================
+   11. FOOTER
+============================================================ */
+
+.site-footer {
+  background-color: var(--color-bg-footer);
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+  padding: var(--spacing-lg) var(--spacing-sm);
+}
+
+.footer-brand {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.footer-copy {
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+
+/* ============================================================
+   12. RESPONSIVE STYLES — TABLET (max 900px)
+   On tablets, show 2 cards per row
+============================================================ */
+@media (max-width: 900px) {
+
+  /* Each card takes up half the row, minus half the gap */
+  .package-card {
+    width: calc(50% - 14px);
+  }
+
+  /* Hide nav links on tablet (you'd use a hamburger menu in a real project) */
+  .nav-links {
+    display: none;
+  }
+}
+
+
+/* ============================================================
+   13. RESPONSIVE STYLES — MOBILE (max 560px)
+   On mobile, show 1 card per row (full width)
+============================================================ */
+@media (max-width: 560px) {
+
+  /* Each card takes the full width */
+  .package-card {
+    width: 100%;
+  }
+
+  /* Reduce hero padding on small screens */
+  .hero-banner {
+    padding: 60px var(--spacing-sm);
+  }
+
+  /* Reduce section padding on small screens */
+  .packages-section {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+
+  /* Stack the two buttons vertically on very small screens */
+  .card-actions {
+    flex-direction: column;
+  }
+
+  /* Meta row wraps on small screens */
+  .card-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,288 @@
+/* ================================
+   DESTINATION SECTION
+   ================================ */
+
+.destination-block {
+  background-color: #f0f7ff;
+  border: 2px solid #1a73e8;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.destination-block h3 {
+  font-size: 1.1rem;
+  color: #1a73e8;
+  margin-bottom: 12px;
+}
+
+/* Text input for destination */
+.destination-input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-family: Arial, sans-serif;
+}
+
+.destination-input:focus {
+  border-color: #1a73e8;
+}
+
+/* Row of popular destination quick-pick tags */
+.popular-destinations {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.popular-label {
+  font-size: 0.82rem;
+  color: #888;
+}
+
+/* Quick-pick tag buttons */
+.dest-tag {
+  padding: 6px 12px;
+  border: 1px solid #1a73e8;
+  border-radius: 20px;
+  background: white;
+  color: #1a73e8;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.dest-tag:hover,
+.dest-tag.selected {
+  background-color: #1a73e8;
+  color: white;
+}
+
+/* Divider line between destination and options */
+.section-divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 20px 0;
+}
+
+/* ================================
+   GLOBAL STYLES
+   ================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+}
+
+/* ================================
+   HEADER
+   ================================ */
+
+.header {
+  background-color: #1a73e8;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.header p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* ================================
+   PAGE LAYOUT — two columns
+   ================================ */
+
+.page-layout {
+  display: flex;
+  flex-wrap: wrap;       /* stacks on small screens */
+  gap: 20px;
+  max-width: 1050px;
+  margin: 30px auto;
+  padding: 0 16px;
+}
+
+/* ================================
+   LEFT BOX — options form
+   ================================ */
+
+.form-box {
+  flex: 1 1 500px;       /* grow and shrink, min 500px wide */
+  background: white;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Each question section */
+.option-block {
+  margin-bottom: 24px;
+}
+
+.option-block h3 {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 12px;
+}
+
+/* Row of buttons for each option */
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Individual choice buttons */
+.choice-btn {
+  padding: 10px 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  color: #444;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Hover — light blue border */
+.choice-btn:hover {
+  border-color: #1a73e8;
+  color: #1a73e8;
+}
+
+/* Selected — filled blue */
+.choice-btn.selected {
+  background-color: #1a73e8;
+  border-color: #1a73e8;
+  color: white;
+  font-weight: bold;
+}
+
+/* ================================
+   RIGHT BOX — summary
+   ================================ */
+
+.summary-box {
+  flex: 1 1 280px;       /* grow and shrink, min 280px wide */
+  background: white;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.summary-box h2 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  color: #222;
+}
+
+/* Each row in summary list */
+.summary-list {
+  margin-bottom: 16px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.summary-row span:first-child {
+  color: #888;
+}
+
+.summary-row span:last-child {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Breakdown heading */
+.breakdown-title {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* Total price box */
+.total-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a73e8;
+  color: white;
+  padding: 14px 16px;
+  border-radius: 8px;
+  margin: 16px 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+#total-price {
+  font-size: 1.4rem;
+}
+
+/* ================================
+   BUTTONS
+   ================================ */
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.88;
+}
+
+.green-btn  { background-color: #34a853; color: white; }
+.blue-btn   { background-color: white; color: #1a73e8; border: 2px solid #1a73e8; }
+.red-btn    { background-color: #fdecea; color: #d93025; border: 2px solid #f5c6c2; }
+.orange-btn { background-color: #ff6d00; color: white; font-size: 1rem; padding: 14px; }
+
+/* ================================
+   FOOTER
+   ================================ */
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-size: 0.85rem;
+  border-top: 1px solid #ddd;
+  margin-top: 20px;
+  background: white;
+}
+
+/* ================================
+   RESPONSIVE — mobile stacking
+   ================================ */
+
+@media (max-width: 600px) {
+  .header h1 { font-size: 1.4rem; }
+  .form-box, .summary-box { padding: 16px; }
+  .choice-btn { flex: 1 1 calc(50% - 10px); text-align: center; }
+}
